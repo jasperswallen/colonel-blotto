@@ -34,3 +34,5 @@
 *.ipch
 *.bin
 blotto
+blotto2
+.clang-format
