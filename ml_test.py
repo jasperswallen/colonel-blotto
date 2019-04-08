@@ -14,9 +14,9 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.svm import SVC
 
 #Load dataset
-url = "dataset.csv"
+url = "dataset.txt"
 names = ['1','2','3','4','5','6','7','8','9','10','Sum']
-dataset = pandas.read_csv(url, names=names)
+dataset = pandas.read_csv(url, sep=" ", names=names, skiprows=[0])
 
 #shape
 print(dataset.shape)
