@@ -19,15 +19,11 @@ int main(int argc, char *argv[]) {
 
     int player1[10] = {0};
     int player2[10] = {0};
-    int player1Score, player2Score = 0;
+    int player1Score, player2Score, player1T, player2T = 0;
 
     for (int i = 0; i < 10; i++) {
         player1File >> player1[i];
         player2File >> player2[i];
-    }
-
-    int player1T, player2T = 0;
-    for (int i = 0; i < 10; i ++) {
         player1T += player1[i];
         player2T += player2[i];
     }
@@ -53,10 +49,10 @@ int main(int argc, char *argv[]) {
 
         if (player2Score >= 20) {
             cout << "Player 2 won!\n";
-            return 0;
+            return 2;
         } else if (player1Score >= 20) {
             cout << "Player 1 won!\n";
-            return 0;
+            return 1;
         }
     }
     cout << "Not enough values were different, so it's a tie!\n";
