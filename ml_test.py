@@ -38,3 +38,7 @@ print(dataset.groupby('Sum').size())
 #histogram
 dataset.hist()
 plt.show()
+
+#scatter plot matrix
+scatter_matrix(dataset)
+plt.show()
