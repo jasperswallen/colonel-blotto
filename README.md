@@ -9,5 +9,5 @@ Game is played between two players as follows:
 
 
 # To-do/Completed:
--[ ] Make basic ML program
--[x] Make basic program for reading in from files to determine who wins
+- [ ] Make basic ML program
+- [x] Make basic program for reading in from files to determine who wins
