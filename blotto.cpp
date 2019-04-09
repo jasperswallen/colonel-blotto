@@ -17,20 +17,16 @@ int main(int argc, char *argv[]) {
         return -1;
     }
 
-    int player1[100] = {0};
     int player1Count[10] = {0};
     int player1Score = 0;
-    int player2[100] = {0};
     int player2Count[10] = {0};
     int player2Score = 0;
 
     for (int i = 0; i < 100; i++) {
         int temp;
         player1File >> temp;
-        player1[i] = temp;
         player1Count[temp]++;
         player2File >> temp;
-        player2[i] = temp;
         player2Count[temp]++;
     }
 
