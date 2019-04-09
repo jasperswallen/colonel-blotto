@@ -1,3 +1,4 @@
+#include <cstdlib>
 #include <fstream>
 #include <iostream>
 #include <sstream>
@@ -37,11 +38,9 @@ int main(int argc, char *argv[]) {
         string player1S, player2S;
         if (winner == 2 || num == 0 || winner == 0) {
             getline(file, player1S);
-            //cout << "Read player 1\n";
         }
         if (winner == 1 || num == 0) {
             getline(file, player2S);
-            //cout << "Read player 2\n";
         }
 
         stringstream player1SS(player1S);
@@ -66,23 +65,16 @@ int main(int argc, char *argv[]) {
 
         for (int i = 0; i < 10; i++) {
             if (player2[i] > player1[i]) {
-                //cout << "Player 2 won " << i << "\n";
                 player2Score += i;
             } else if (player1[i] > player2[i]) {
-                //cout << "Player 1 won " << i << "\n";
                 player1Score += i;
-            } else {
-                //cout << "It was a tie! No points assigned\n";
             }
-
-            //cout << "Score: Player 1: " << player1Score << "\tPlayer 2: " << player2Score << "\n";
 
             if (player2Score >= 20) {
                 for (int j = 0; j < 10; j++) {
                     oFile << player2[j] << " ";
                 }
                 oFile << 100 << endl;
-                //cout << "\nPlayer 2 won!\n\n";
                 winner = 2;
                 break;
             } else if (player1Score >= 20) {
@@ -90,21 +82,17 @@ int main(int argc, char *argv[]) {
                     oFile << player1[j] << " ";
                 }
                 oFile << 100 << endl;
-                //cout << "\nPlayer 1 won!\n\n";
                 winner = 1;
                 break;
             }
         }
         if (!winner) {
-            //oFile << "Not enough values were different, so it's a tie!\n";
             if (player2Score > player1Score)
                 winner = 2;
-            
+
             if (player1Score > player2Score)
                 winner = 1;
         }
         num++;
     }
-
-    //oFile << "Finished!\n";
 }
