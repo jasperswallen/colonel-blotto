@@ -13,14 +13,22 @@ Game is played between two players as follows:
 ## Usage:
 
 1. Clone the repo
-2. Compile `blotto_ml` and `dataset_gen`
-3. Generate dataset.txt with `$ ./dataset_gen [number of iterations]` (currently, sample dataset contains 100000)
+2. Compile with `make`
+3. Generate dataset.txt with `$ ./dataset_gen [number of iterations]` (currently, sample dataset contains 100)
 4. Run the dataset through blotto with `$ ./blotto_ml [dataset file] [output file]`
-5. Check the last line of your output file to see what the optimal solution found was.
-    1. If you want, you can put the optimal solution in the first line of your dataset file to start with that, then run through it as many times as you want like this.
+5. Repeat step 4, changing the dataset file to the previous output file each time.
+ 
+* Example:
+  * `make`
+  * `./dataset_gen 100`
+  * `./blotto_ml dataset.txt output.txt`
+  * `./blotto_ml output.txt output2.txt`
+  * `./blotto_ml output2.txt output3.txt`
+  * And so on until only one line remains (this is your optimal solution)
 
 ## To-do/Completed:
 
-- [ ] Make basic ML program ~(sorta works?)~ (does not work at all)
+- [x] Make basic ML program ~(sorta works?)~ ~(does not work at all)~ (ok now it actually sort of works!)
 - [x] Implement proper random dataset (right now, all exist as modified normal distributions)
 - [x] Make basic program for reading in from files to determine who wins
+- [ ] Merge with master
