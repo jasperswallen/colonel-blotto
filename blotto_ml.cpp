@@ -22,11 +22,13 @@ int main(int argc, char *argv[]) {
 
     int count;
     file >> count;
+    oFile << count << endl;
     file.ignore();
     int player1[10] = {0};
     int player2[10] = {0};
+    int num = 0;
 
-    for (int num = 0; num < count; num++) {
+    while (!file.fail()) {
         int player1Score = 0;
         int player2Score = 0;
         int player1T = 0;
@@ -76,30 +78,33 @@ int main(int argc, char *argv[]) {
             //cout << "Score: Player 1: " << player1Score << "\tPlayer 2: " << player2Score << "\n";
 
             if (player2Score >= 20) {
-                oFile << "Winning nums: ";
                 for (int j = 0; j < 10; j++) {
                     oFile << player2[j] << " ";
                 }
-                oFile << endl;
+                oFile << 100 << endl;
                 //cout << "\nPlayer 2 won!\n\n";
                 winner = 2;
                 break;
             } else if (player1Score >= 20) {
-                oFile << "Winning nums: ";
                 for (int j = 0; j < 10; j++) {
                     oFile << player1[j] << " ";
                 }
-                oFile << endl;
+                oFile << 100 << endl;
                 //cout << "\nPlayer 1 won!\n\n";
                 winner = 1;
                 break;
             }
         }
         if (!winner) {
-            oFile << "Not enough values were different, so it's a tie!\n\n";
-            winner = 0;
+            //oFile << "Not enough values were different, so it's a tie!\n";
+            if (player2Score > player1Score)
+                winner = 2;
+            
+            if (player1Score > player2Score)
+                winner = 1;
         }
+        num++;
     }
 
-    oFile << "Finished!\n";
+    //oFile << "Finished!\n";
 }
