@@ -12,3 +12,4 @@ $(TARGET): $(TARGET).cpp
 
 $(ALLFILES): %: %.cpp
 	$(CXX) $(CXXFLAGS) -o $@ $<
+	

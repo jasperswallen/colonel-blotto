@@ -32,3 +32,18 @@ Game is played between two players as follows:
 - [x] Implement proper random dataset (right now, all exist as modified normal distributions)
 - [x] Make basic program for reading in from files to determine who wins
 - [ ] Merge with master
+
+
+### Status: 'ML' Completed with Caveats
+
+At this point, the machine learning algorithm works. It is a simple round robin that tests against the rest of the given inputs. Limitations primarily consist of:
+1. Runtime
+2. Random number generation (this part is still off, and I'm not entirely sure how to implement this)
+3. Changing the command each time (it would be ideal if it just iterated from each file to the next, BUT with large dataset sizes, this would result in hugely long runtimes (each iteration is at least O(n^2))
+4. Also, this whole program was written in C++, which may be awkward to move forward with if anyone wanted to. I mostly just wanted to throw this together in response to the Jane Street challenge.
+
+I am hesitant to say that the ideal solution can be found using this method, since:
+a.) The data is randomly generated, but in the real world, competition would be against other people('s algorithms)
+and b.) Just because the round robin is won > 50% of the time against the winning dataset does not mean it would be won against the losing dataset. That is, if one sample barely makes it into the winning dataset by winning almost exclusively against the winning dataset, it will then do *very* well against the winning dataset and further iterations, while it would do *very* poorly against the losing dataset.
+
+That being said, I think that this will be as far as I will go with this specific problem, since it is very hard to test if the solved solution is actually a good solution.
