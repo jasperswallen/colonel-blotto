@@ -1,9 +1,9 @@
-#include <iostream>
 #include <fstream>
+#include <iostream>
 
 using namespace std;
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     if (argc != 3) {
         cout << "Must include 2 files with player moves\n";
         return -1;
@@ -45,13 +45,13 @@ int main(int argc, char* argv[]) {
             cout << "It was a tie! No points assigned\n";
         }
 
-        cout << "Score: Player 1: " << player1Score << "\tPlayer 2: " << player2Score << "\n";
+        cout << "Score: Player 1: " << player1Score
+             << "\tPlayer 2: " << player2Score << "\n";
 
         if (player2Score >= 20) {
             cout << "Player 2 won!\n";
             return 0;
-        }
-        else if (player1Score >= 20) {
+        } else if (player1Score >= 20) {
             cout << "Player 1 won!\n";
             return 0;
         }

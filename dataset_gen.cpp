@@ -21,7 +21,7 @@ int main(int argc, char *argv[]) {
         int numsoldiers[10] = {0};
 
         for (int j = 0; j < 100; j++) {
-            numsoldiers[rand() % 10]++;
+            numsoldiers[rand() % 9]++;
         }
         int sum = 0;
         for (int j = 0; j < 10; j++) {

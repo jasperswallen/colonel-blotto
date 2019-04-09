@@ -19,7 +19,8 @@ int main(int argc, char *argv[]) {
 
     int player1[10] = {0};
     int player2[10] = {0};
-    int player1Score, player2Score, player1T, player2T = 0;
+    int player1Score, player2Score, player1T, player2T;
+    player1Score = player2Score = player1T = player2T = 0;
 
     for (int i = 0; i < 10; i++) {
         player1File >> player1[i];
