@@ -2,6 +2,8 @@
 
 Examining Strategies For Winning Custom Blotto Game
 
+[![Build Status](https://travis-ci.com/jasperswallen/colonel-blotto.svg?branch=machine-learning)](https://travis-ci.com/jasperswallen/colonel-blotto)
+
 Game is played between two players as follows:
 
 1. Each player lays down 100 soldiers at castles marked 1-10, without knowing how many soldiers the other player lays down.
