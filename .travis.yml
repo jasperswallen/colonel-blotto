@@ -1,4 +1,11 @@
-language: cpp
-compiler: clang
-script:
-  - g++ blotto_ml.cpp -g -o blotto_ml && g++ dataset_gen.cpp -g -o dataset_gen && ./dataset_gen 100 && ./blotto_ml dataset.txt output.txt
+matrix:
+  include:
+    - language: cpp
+      compiler: clang
+      script:
+        - g++ blotto_ml.cpp -g -o blotto_ml && g++ dataset_gen.cpp -g -o dataset_gen && ./dataset_gen 100 && ./blotto_ml dataset.txt output.txt
+
+    - language: python
+      python: 3.7.3
+      script:
+        - python3 my_test.py
