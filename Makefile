@@ -1,5 +1,5 @@
 CXX 		= g++
-CXXFLAGS	= -Wall -Wextra -Werror -g
+CXXFLAGS	= -std=c++0x -Wall -Wextra -Werror -g
 ALLFILES	= blotto blotto_ml dataset_gen blotto2 blotto3
 
 all: $(ALLFILES)
