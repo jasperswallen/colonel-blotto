@@ -11,4 +11,4 @@ matrix:
       install:
         - pip3 install -r requirements.txt
       script:
-        - python3 my_test.py
+        - python3 ml_test.py
