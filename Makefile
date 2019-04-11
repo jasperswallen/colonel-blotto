@@ -5,7 +5,7 @@ ALLFILES	= blotto blotto_ml dataset_gen blotto2 blotto3
 all: $(ALLFILES)
 
 clean:
-	$(RM) -r $(ALLFILES) *.o *~ *.dSYM/
+	$(RM) -r $(ALLFILES) *.o *~ *.dSYM/ output.txt putput.txt dataset.txt
 
 $(TARGET): $(TARGET).cpp
 	$(CXX) $(CXXFLAGS) -o $(TARGET) $(TARGET).cpp
