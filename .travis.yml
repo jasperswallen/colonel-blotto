@@ -3,7 +3,7 @@ matrix:
     - language: cpp
       compiler: clang
       script:
-        - make && ./dataset_gen 100 && ./blotto_ml dataset.txt output.txt && make clean
+        - make && ./dataset_gen 1000 && ./blotto_ml dataset.txt output.txt && make clean
 
     - language: python
       python: 

@@ -35,12 +35,16 @@ int main(int argc, char *argv[]) {
                 output[0] += 2;
 
             if (ret == 1) {
-                output[0]--;
+                output[0]++;
+                if (rounds % 2)
+                    output[0] -= 2;
                 cout << "Finished after " << rounds << " round(s)\n";
                 return 0;
             }
             if (ret == -1) {
-                output[0]--;
+                output[0]++;
+                if (rounds % 2)
+                    output[0] -= 2;
                 cout << "Unable to write to " << output << endl;
                 return -1;
             }
@@ -68,11 +72,15 @@ int main(int argc, char *argv[]) {
 
         if (ret == 1) {
             keepOn = false;
-            output[0]--;
+            output[0]++;
+            if (rounds % 2)
+                output[0] -= 2;
         }
         if (ret == -1) {
             keepOn = false;
-            output[0]--;
+            output[0]++;
+            if (rounds % 2)
+                output[0] -= 2;
             cout << "Unable to write to " << output << endl;
             return -1;
         }

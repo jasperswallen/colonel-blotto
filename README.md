@@ -1,4 +1,4 @@
-# colonel-blotto
+# Colonel Blotto
 
 Examining Strategies For Winning Custom Blotto Game
 
@@ -14,13 +14,13 @@ Game is played between two players as follows:
 
 1. Clone the repo
 2. Compile with `make`
-3. Generate dataset.txt with `$ ./dataset_gen [number of iterations]` (currently, sample dataset contains 100)
+3. Generate dataset.txt with `$ ./dataset_gen [number of iterations]` (currently, sample dataset contains 1000)
 4. Run the dataset through blotto with `$ ./blotto_ml [dataset file] [output file]`
 5. Repeat step 4, changing the dataset file to the previous output file each time.
  
 * Example:
   * `make`
-  * `./dataset_gen 100`
+  * `./dataset_gen 1000`
   * `./blotto_ml dataset.txt output.txt`
   * `./blotto_ml output.txt output2.txt`
   * `./blotto_ml output2.txt output3.txt`
@@ -39,7 +39,7 @@ Game is played between two players as follows:
 At this point, the machine learning algorithm works. It is a simple round robin that tests against the rest of the given inputs. Limitations primarily consist of:
 1. Runtime
 2. Random number generation (this part is still off, and I'm not entirely sure how to implement this)
-3. Changing the command each time (it would be ideal if it just iterated from each file to the next, BUT with large dataset sizes, this would result in hugely long runtimes (each iteration is at least O(n^2))
+3. ~Changing the command each time (it would be ideal if it just iterated from each file to the next, BUT with large dataset sizes, this would result in hugely long runtimes (each iteration is at least O(n^2))~
 4. Also, this whole program was written in C++, which may be awkward to move forward with if anyone wanted to. I mostly just wanted to throw this together in response to the Jane Street challenge.
 
 I am hesitant to say that the ideal solution can be found using this method, since:
