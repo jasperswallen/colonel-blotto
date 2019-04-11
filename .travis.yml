@@ -4,8 +4,6 @@ matrix:
       compiler: clang
       script:
         - make && ./dataset_gen 1000 && ./blotto_ml dataset.txt output.txt
-      after_script:
-        - make clean
 
     - language: python
       python: 
@@ -14,3 +12,5 @@ matrix:
         - pip3 install -r requirements.txt
       script:
         - python3 ml_test.py
+      after_script:
+        - make clean
