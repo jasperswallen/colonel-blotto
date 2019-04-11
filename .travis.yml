@@ -1,7 +1,9 @@
 matrix:
   include:
-    - language: cpp
-      compiler: clang
+      python: 
+        - "3.6"
+      install:
+        - pip3 install -r requirements.txt
       script:
         - make && ./dataset_gen 1000 && ./blotto_ml dataset.txt output.txt && python3 ml_test.py && make clean
 
