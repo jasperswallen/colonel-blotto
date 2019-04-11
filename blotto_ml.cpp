@@ -1,4 +1,3 @@
-#include <cstdlib>
 #include <fstream>
 #include <iostream>
 #include <sstream>
@@ -6,14 +5,93 @@
 
 using namespace std;
 
+int roundRobin(string input, string output);
+
 int main(int argc, char *argv[]) {
-    if (argc != 3) {
+    if (argc < 3) {
         cout << "Must include dataset and output file\n";
         return -1;
     }
 
-    ifstream player1File(argv[1]);
-    ofstream oFile(argv[2]);
+    string input = argv[1];
+    string output = argv[2];
+
+    ifstream file(input);
+    if (file.fail()) {
+        cout << "Unable to read file";
+        return -1;
+    }
+    file.close();
+
+    if (argc == 4) {
+        int rounds = atoi(argv[3]);
+        cout << "Only running " << rounds << " round(s)\n";
+        for (int i = 0; i < rounds; i++) {
+            int ret = roundRobin(input, output);
+
+            input = output;
+            output[0]--;
+            if (rounds % 2)
+                output[0] += 2;
+
+            if (ret == 1) {
+                output[0]--;
+                cout << "Finished after " << rounds << " round(s)\n";
+                return 0;
+            }
+            if (ret == -1) {
+                output[0]--;
+                cout << "Unable to write to " << output << endl;
+                return -1;
+            }
+
+            if (ret == 0) {
+                cout << "Uhh not entirely sure what happened here? Try fewer "
+                        "rounds\n";
+                return 1;
+            }
+        }
+        return 0;
+    }
+
+    bool keepOn = true;
+    int rounds = 0;
+    while (keepOn) {
+        rounds++;
+        int ret = roundRobin(input, output);
+
+        input = output;
+
+        output[0]--;
+        if (rounds % 2)
+            output[0] += 2;
+
+        if (ret == 1) {
+            keepOn = false;
+            output[0]--;
+        }
+        if (ret == -1) {
+            keepOn = false;
+            output[0]--;
+            cout << "Unable to write to " << output << endl;
+            return -1;
+        }
+
+        if (ret == 0) {
+            keepOn = false;
+            cout << "Too many iterations, try starting from the second to last "
+                    "file and run with 1 operation.\n";
+            return 1;
+        }
+    }
+
+    cout << "Successfully wrote to " << output << endl;
+    return 0;
+}
+
+int roundRobin(string input, string output) {
+    ifstream player1File(input);
+    ofstream oFile(output);
 
     if (player1File.fail() || oFile.fail()) {
         cout << "Invalid files\n";
@@ -28,7 +106,7 @@ int main(int argc, char *argv[]) {
     player1File.ignore();
 
     for (int num1 = 0; num1 < count; num1++) {
-        ifstream file(argv[1]);
+        ifstream file(input);
         file >> count;
         file.ignore();
 
@@ -103,17 +181,24 @@ int main(int argc, char *argv[]) {
     player1File.close();
     oFile.close();
 
-    ifstream newFile(argv[2]);
+    ifstream newFile(output);
     string *arr = new string[numOfWins + 1];
     for (int i = 0; i <= numOfWins; i++) {
         getline(newFile, arr[i]);
     }
     arr[0] = to_string(numOfWins);
 
-    ofstream overwrite(argv[2]);
+    newFile.close();
+
+    ofstream overwrite(output);
 
     for (int i = 0; i <= numOfWins; i++) {
         overwrite << arr[i] << endl;
     }
+
+    overwrite.close();
+
     delete[] arr;
+
+    return numOfWins;
 }
