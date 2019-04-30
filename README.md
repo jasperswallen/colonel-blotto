@@ -31,7 +31,7 @@ Game is played between two players as follows:
 - [x] Make basic ML program ~(sorta works?)~ ~(does not work at all)~ (ok now it actually sort of works!)
 - [x] Implement proper random dataset (right now, all exist as modified normal distributions)
 - [x] Make basic program for reading in from files to determine who wins
-- [ ] Merge with master
+- [x] Merge with master
 
 
 ### Status: 'ML' Completed with Caveats
