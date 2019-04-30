@@ -89,7 +89,7 @@ int main(int argc, char *argv[]) {
             keepOn = false;
             cout << "Too many iterations, try starting from the second to last "
                     "file and run with 1 operation.\n";
-            return 1;
+            return 0;
         }
     }
 
