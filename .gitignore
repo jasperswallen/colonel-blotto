@@ -40,3 +40,9 @@ player1_2.txt
 player2_2.txt
 player1_1.txt
 player2_1.txt
+dataset_gen
+blotto_ml
+*.dSYM
+output3.txt
+output2.txt
+blotto3
